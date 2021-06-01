@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Produtos</title>
+	<link rel="stylesheet" type="text/css"
+	href="/css/bootstrap.min.css"/>
+	<script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- inserindo uma logo no site -->
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">
+			<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmultarte.com.br%2Flogo-do-youtube-png-fundo-transparente%2F&psig=AOvVaw3YH1pT9WmrEZse34FuqWNi&ust=1622163082842000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJCp88bS6PACFQAAAAAdAAAAABAD"
+			alt="" loading="Lazy">
+		</a>
+	</nav>
+	<!-- aqui vai o formulário de cadastro -->
+	<form action="/produto" method="POST"
+	class="form-horizontal" th:object="${produto}">
+		<!-- aqui vai a descrição no form -->
+		<input type="hidden" th:field="*{id}" />
+		<div class="form-group row">
+			<label class="col-4 col-form-Label"
+			for="descricao">Descrição</label>
+			<div class="col-8">
+				<input id="descricao" name="descricao"
+				type="text" class="form-control"
+				required="required" th:field="*{descricao}">
+			</div>
+		</div>
+		<!-- aqui encerra o codigo da descrição -->
+		<!-- aqui vai a marca no form -->
+		<div class="form-group row">
+			<label class="col-4 col-form-Label"
+			for="marca">Marca</label>
+			<div class="col-8">
+				<input id="marca" name="marca"
+				type="text" class="form-control"
+				required="required" th:field="*{marca}">
+			</div>
+		</div>
+		<!-- aqui encerra o codigo da marca -->
+		<!-- aqui vai o preço no form -->
+		<div class="form-group row">
+			<label class="col-4 col-form-Label"
+			for="preco">Preço</label>
+			<div class="col-8">
+				<input id="preco" name="preco"
+				type="number" class="form-control"
+				required="required" th:field="*{preco}">
+			</div>
+		</div>
+		<!-- aqui encerra o preço da marca -->
+		<!-- codigo Botão Salvar -->
+		<div class="form-group row">
+			<div class="offset-4 col-8">
+				<button name="submit" type="submit"
+				class="btn btn-primary">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  					<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+				</svg>
+				Salvar
+				</button>				
+				<a th:href="@{/produto}">
+				<button name="voltar" type="button"
+				class="btn btn-secondary">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+ 						<path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+					</svg>		
+					Voltar			
+				</button>
+				</a>
+			</div>
+		</div>
+		<!-- aqui termina botão salvar -->
+	</form>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+</body>
+</html>
